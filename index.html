@@ -3,13 +3,28 @@
 	<head>
 		<meta charset="utf-8" />
 		<title></title>
+		<link rel="stylesheet" href="css/normalize.css" />
 		<link rel="stylesheet" href="css/crmxb.css" />
+		<link rel="stylesheet" href="assets/fakeLoader/fakeLoader.css" />
+		<script src="js/jquery-1.11.0.min.js"></script>
 	</head>
-	<body>
+	<body class="scrollbar">
 		<div>  
 		    <iframe id="iframeTop" name="iframeTop" frameborder="0" src="html/controlTop.html"></iframe>  
 		    <iframe id="iframeLeft" name="iframeLeft" frameborder="0" src="html/controlLeft.html"></iframe>  
 		    <iframe id="iframeContent" name="iframeContent" frameborder="0" src="html/content.html"></iframe>  
-		</div>  	
+		</div>  
+		<div class="fakeloader"></div>
+	    <script src="assets/fakeLoader/fakeLoader.min.js"></script>
+	    <script>
+		    $(document).ready(function(){
+	            $(".fakeloader").fakeLoader({
+	                timeToHide:1200,
+	                bgColor:"#222",
+	                spinner:"spinner3"
+	            });
+	       });
+		</script>
+		
 	</body>
 </html>
