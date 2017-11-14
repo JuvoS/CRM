@@ -1,0 +1,7 @@
+@font-face {
+	font-family:quickSandLight;
+	src: url(../../assets/fonts/quicksand/Quicksand_Light.otf);
+}
+.quickSandLight {
+	font-family: quickSandLight;
+}

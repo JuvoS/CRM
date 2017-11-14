@@ -1,0 +1,8 @@
+/*加粗*/
+@font-face {
+	font-family:quickSandBold;
+	src: url(../../assets/fonts/quicksand/Quicksand_Bold.otf);
+}
+.quickSandBold {
+	font-family: quickSandBold;
+}

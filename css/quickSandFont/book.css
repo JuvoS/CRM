@@ -1,0 +1,8 @@
+@font-face {
+	font-family:quickSandBook;
+	src: url(../../assets/fonts/quicksand/Quicksand_Book.otf);
+}
+.quickSandBook {
+	font-family: quickSandBook;
+}
+

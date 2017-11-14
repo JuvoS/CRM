@@ -1,0 +1,7 @@
+@font-face {
+	font-family:quickSandDash;
+	src: url(../../assets/fonts/quicksand/Quicksand_Dash.otf);
+}
+.quickSandDash {
+	font-family: quickSandDash;
+}

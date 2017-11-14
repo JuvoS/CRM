@@ -1,0 +1,8 @@
+/*斜体*/
+@font-face {
+	font-family:quickSandLightOblique;
+	src: url(../../assets/fonts/quicksand/Quicksand_Light_Oblique.otf);
+}
+.quickSandLightOblique {
+	font-family: quickSandLightOblique;
+}
