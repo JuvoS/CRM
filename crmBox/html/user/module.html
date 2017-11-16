@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../js/jquery-1.11.0.min.js" ></script>
+	</head>
+	<body onload="init()">
+		<form action="">
+			<table>
+				<tr>
+					<td>Title</td>
+					<td><input placeholder="Module-Title" id="title" /></td>
+				</tr>
+				<tr>
+					<td>Content</td>
+					<td><textarea placeholder="Module-content" id="content"></textarea></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="button" value="保存" onclick="saveData()" />
+					</td>
+				</tr>
+			</table>
+		</form>
+		<hr/>
+	    <input type="button" onclick="showAllData()" value="显示全部">
+	            <input type="button" onclick="delAllData()" value="清空全部">
+	    <hr/>
+	    <table id="datatable" border="0">
+	
+	    </table>
+	    <p id="msg"></p>
+	</body>
+	<script type="text/javascript" src="../../js/Map.js" ></script>
+	<script type="text/javascript" src="../../js/crmdb.js" ></script>
+	<script type="text/javascript">
+		var datatable = null;
+		var crmdb = new CrmDb();
+		function init(){
+			datatable = document.getElementById('datatable');
+			crmdb.createData('create table if not exists ModuleData(name TEXT,content TEXT)');
+			showAllData();
+		}
+		function removeAllData(){//移除页面上展示的数据
+	        for(var i = datatable.childNodes.length-1;i>=0;i--){
+	            datatable.removeChild(datatable.childNodes[i]);
+	        }
+	        var tr = document.createElement('tr');
+	        var th1 = document.createElement('th');
+	        var th2 = document.createElement('th');
+	       
+	        th1.innerHTML = 'name';
+	        th2.innerHTML = 'Content';
+	       
+	        tr.appendChild(th1);
+	        tr.appendChild(th2);
+	      
+	        datatable.appendChild(tr);
+	
+	    }
+		function showData(row){//显示数据
+	        var tr = document.createElement('tr');
+	        var td1 = document.createElement('td');
+	        td1.innerHTML = row.name;
+	        var td2 = document.createElement('td');
+	        td2.innerHTML = row.content;
+	       
+	        tr.appendChild(td1);
+	        tr.appendChild(td2);
+	      
+	        datatable.appendChild(tr);
+	    }
+	    function showAllData(){//显示所有数据
+	
+	        crmdb.db.transaction(function (tx){
+	            tx.executeSql('select * from ModuleData',[],function(tx,result){
+	                removeAllData();
+	                for(var i = 0 ;i<result.rows.length;i++){
+	                    showData(result.rows.item(i));
+	                }
+	            })
+	        })
+	    }
+		
+		function saveData(){//保存数据
+	        var title = document.getElementById('title').value;
+	        var describe = document.getElementById('content').value;
+	        if(title&&describe){
+	        	var dbArr = new Array('name','content');
+				var valueArr = new Array(title,describe);
+				crmdb.saveData('ModuleData',dbArr,valueArr);
+		        showAllData();
+	        }else{
+	        	alert('Please input');	
+	        }
+	    }
+		function  delAllData(){//删除所有数据
+	        crmdb.delAllData('ModuleData');
+	        showAllData();
+	    }
+	</script>
+</html>

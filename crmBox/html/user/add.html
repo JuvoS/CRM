@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../js/jquery-1.11.0.min.js" ></script>
+	</head>
+	<body onload="init()">
+		<form action="">
+			<table>
+				<tr>
+					<td colspan="2">add User</td>
+				</tr>
+				<tr>
+					<td>user name</td>
+					<td><input placeholder="User-Name" id="username" /></td>
+				</tr>
+				<tr>
+					<td>user pass</td>
+					<td><textarea placeholder="User-Password" id="userpassword"></textarea></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="button" value="Save" onclick="saveData()" />
+					</td>
+				</tr>
+			</table>
+		</form>
+		<hr/>
+	    <input type="button" onclick="showAllData()" value="ShowAll">
+        <input type="button" onclick="delAllData()" value="ClearAll">
+	    <hr/>
+	    <table id="datatable" border="0">
+	
+	    </table>
+	    <p id="msg"></p>
+	</body>
+	<script type="text/javascript" src="../../js/Map.js" ></script>
+	<script type="text/javascript" src="../../js/crmdb.js" ></script>
+	<script type="text/javascript">
+		var datatable = null;
+		var crmdb = new CrmDb();
+		function init(){
+			datatable = document.getElementById('datatable');
+			crmdb.createData('create table if not exists UserData(crmid TEXT,name TEXT,password TEXT,is_system TEXT)');
+			showAllData();
+		}
+		function removeAllData(){//移除页面上展示的数据
+	        for(var i = datatable.childNodes.length-1;i>=0;i--){
+	            datatable.removeChild(datatable.childNodes[i]);
+	        }
+	        var tr = document.createElement('tr');
+	        var th1 = document.createElement('th');
+	        var th2 = document.createElement('th');
+	        var th3 = document.createElement('th');
+	        var th4 = document.createElement('th');
+	       
+	        th1.innerHTML = 'name';
+	        th2.innerHTML = 'password';
+	        th3.innerHTML = 'crmid';
+	        th4.innerHTML = 'is_system';
+	       
+	        tr.appendChild(th1);
+	        tr.appendChild(th2);
+	        tr.appendChild(th3);
+	        tr.appendChild(th4);
+	      
+	        datatable.appendChild(tr);
+	
+	    }
+		function showData(row){//显示数据
+	        var tr = document.createElement('tr');
+	        var td1 = document.createElement('td');
+	        td1.innerHTML = row.name;
+	        var td2 = document.createElement('td');
+	        td2.innerHTML = row.password;
+	        var td3 = document.createElement('td');
+	        td3.innerHTML = row.crmid;
+	        var td4 = document.createElement('td');
+	        td4.innerHTML = row.is_system;
+	       
+	        tr.appendChild(td1);
+	        tr.appendChild(td2);
+	        tr.appendChild(td3);
+	        tr.appendChild(td4);
+	      
+	        datatable.appendChild(tr);
+	    }
+	    function showAllData(){//显示所有数据
+	
+	        crmdb.db.transaction(function (tx){
+	            tx.executeSql('select * from UserData',[],function(tx,result){
+	                removeAllData();
+	                for(var i = 0 ;i<result.rows.length;i++){
+	                    showData(result.rows.item(i));
+	                }
+	            })
+	        })
+	    }
+		
+		function saveData(){//保存数据
+	        var username = document.getElementById('username').value;
+	        var userpassword = document.getElementById('userpassword').value;
+	        var dateObj = new Date();
+	        var crmid = dateObj.getYear().toString()+(dateObj.getMonth()+1).toString()
+	        +dateObj.getDate().toString()+Math.floor(Math.round(Math.random()*10000)).toString();
+	        console.log(dateObj.getYear().toString());
+	        console.log(dateObj.getMonth().toString());
+	        console.log(dateObj.getDate().toString());
+	        console.log(Math.floor(Math.round(Math.random()*10000)).toString());
+	        
+	        var dbArr = new Array('name','content','','');
+			var valueArr = new Array(crmid,username,userpassword,'');
+			crmdb.saveData('UserData',dbArr,valueArr);
+	        showAllData();
+	    }
+		function  delAllData(){//删除所有数据
+	        crmdb.delAllData('UserData');
+	        showAllData();
+	    }
+	</script>
+</html>

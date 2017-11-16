@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../js/jquery-1.11.0.min.js" ></script>
+	</head>
+	<body onload="init()">
+		<form action="">
+			<table>
+				<tr>
+					<td>Title</td>
+					<td><input placeholder="Title" id="title" /></td>
+				</tr>
+				<tr>
+					<td>Describe</td>
+					<td><textarea placeholder="Describe" id="describe"></textarea></td>
+				</tr>
+				<tr>
+					<td>Keywords</td>
+					<td><input placeholder="Keywords" id="stkeywords"/></td>
+				</tr>
+				<tr>
+					<td>Url</td>
+					<td><input placeholder="Url" id="sturl"/></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="button" value="保存" onclick="saveData()" />
+					</td>
+				</tr>
+			</table>
+		</form>
+		<hr/>
+	    <input type="button" onclick="showAllData()" value="显示全部">
+	            <input type="button" onclick="delAllData()" value="清空全部">
+	    <hr/>
+	    <table id="datatable" border="0">
+	
+	    </table>
+	    <p id="msg"></p>
+	</body>
+	<script type="text/javascript">
+	    var datatable = null;
+	    var db = openDatabase('stResources','1.0','resources db',1024*100);//数据库名 版本 数据库描述 大小
+	
+	    function init(){//初始化工作
+	        datatable = document.getElementById('datatable');
+	        showAllData();
+	    }
+	    function removeAllData(){//移除页面上展示的数据
+	        for(var i = datatable.childNodes.length-1;i>=0;i--){
+	            datatable.removeChild(datatable.childNodes[i]);
+	        }
+	        var tr = document.createElement('tr');
+	        var th1 = document.createElement('th');
+	        var th2 = document.createElement('th');
+	        var th3 = document.createElement('th');
+	        var th4 = document.createElement('th');
+	        th1.innerHTML = 'Title';
+	        th2.innerHTML = 'Describe';
+	        th3.innerHTML = 'KeyWords';
+	        th4.innerHTML = 'Url';
+	        tr.appendChild(th1);
+	        tr.appendChild(th2);
+	        tr.appendChild(th3);
+	        tr.appendChild(th4);
+	        datatable.appendChild(tr);
+	
+	    }
+	    function showData(row){//显示数据
+	    	console.log(row);
+	        var tr = document.createElement('tr');
+	        var td1 = document.createElement('td');
+	        td1.innerHTML = row.title;
+	        var td2 = document.createElement('td');
+	        td2.innerHTML = row.describe;
+	        var td3 = document.createElement('td');
+	        td3.innerHTML = row.keywords;
+	        var td4 = document.createElement('td');
+	        td4.innerHTML = row.url;
+	        tr.appendChild(td1);
+	        tr.appendChild(td2);
+	        tr.appendChild(td3);
+	        tr.appendChild(td4);
+	        datatable.appendChild(tr);
+	    }
+	    function showAllData(){//显示所有数据
+	
+	        db.transaction(function (tx){
+	            tx.executeSql('create table if not exists ResourceData(title TEXT,describe TEXT,keywords TEXT,url TEXT)',[],function(tx,res){
+	
+	                },function(tx,err){
+	                    alert(err.message)
+	                });
+	
+	            tx.executeSql('select * from ResourceData',[],function(tx,result){
+	                removeAllData();
+	                for(var i = 0 ;i<result.rows.length;i++){
+	                    showData(result.rows.item(i));
+	                }
+	            })
+	        })
+	    }
+	    function saveData(){//保存数据
+	        var title = document.getElementById('title').value;
+	        var describe = document.getElementById('describe').value;
+	        var stKeywords = document.getElementById('stkeywords').value;
+	        var stUrl = document.getElementById('sturl').value;
+	        addData(title,describe,stKeywords,stUrl);
+	        showAllData();
+	    }
+	    function addData(title,describe,stkeywords,sturl){//添加数据
+	        db.transaction(function(tx){
+	            tx.executeSql('insert into ResourceData values(?,?,?,?)',[title,describe,stkeywords,sturl],function(tx,rs){
+	                alert('yes');
+	            },
+	            function (tx,err){
+	                alert(err.source +'===='+err.message);
+	            })
+	        })
+	    }
+	    function  delAllData(){//删除所有数据
+	        db.transaction(function(tx){
+	            tx.executeSql('delete from ResourceData',[],function(tx,res){
+	                alert('删除成功~');
+	            },function (tx,err){
+	                alert('删除失败'+err.message);
+	            })
+	        })
+	        showAllData();
+	    }
+	</script>
+</html>
