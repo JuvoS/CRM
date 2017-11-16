@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html>
-
+<html class="desktop js portrait">
 	<head>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -22,15 +21,14 @@
 
 		<meta content="" name="keywords">
 		<meta content="" name="description">
-		<link rel="shortcut icon" href="https://assets2016.bmob.cn/img/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
 		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-		<title>应用列表－Bmob后端云</title>
-		<link rel="stylesheet" type="text/css" href="https://assets2016.bmob.cn/css/global.css?58">
-		<link rel="stylesheet" type="text/css" href="https://assets2016.bmob.cn/css/bootstrap.min.css?58">
-		<link rel="stylesheet" type="text/css" href="https://assets2016.bmob.cn/css/bootstrap-slider.min.css?58">
-		<link rel="stylesheet" type="text/css" href="https://assets2016.bmob.cn/css/responsive-nav.css?58">
-		<link rel="stylesheet" type="text/css" href="https://assets2016.bmob.cn/css/base.css?58">
-		<!--    <script  type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js?96"></script>-->
+		<title>用户加油站</title>
+		<link rel="stylesheet" type="text/css" href="css/global.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-slider.min.css">
+		<link rel="stylesheet" type="text/css" href="css/responsive-nav.css">
+		<link rel="stylesheet" type="text/css" href="css/base.css">
 		<script type="text/javascript">
 			$(function() {　　
 				if(device.desktop() == true) {
@@ -53,43 +51,22 @@
 				});
 			});
 		</script>
-		<script src="https://assets2016.bmob.cn/js/jquery.nicescroll.js?96" type="text/javascript"></script>
-		<script src="https://assets2016.bmob.cn/js/datalist.js?96" type="text/javascript"></script>
-		<script type="text/javascript" src="https://assets2016.bmob.cn/js/bootstrap.min.js?96"></script>
-		<script type="text/javascript" src="https://assets2016.bmob.cn/js/responsive-nav.js?96"></script>
-		<script type="text/javascript" src="https://assets2016.bmob.cn/js/base.js?96"></script>
+		<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+		<script src="js/datalist.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/responsive-nav.js"></script>
+		<script type="text/javascript" src="js/base.js"></script>
 
-		<script type="text/javascript">
-			// 跳转https
-			//      if (location.protocol != 'https:' && (location.hostname == 'www.bmob.cn' || location.hostname == 'bmob.cn')) {
-			//          location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-			//      }
-			//
-			//      var BmobNamespace = {};
-			//      BmobNamespace.baseUrl = '';
-			//      BmobNamespace.themeUrl = 'https://assets2016.bmob.cn';
-			//      BmobNamespace.baseUrlWithHost = "https://www.bmob.cn";
-		</script>
 	</head>
 
 	<body>
-		<!-- <div class="showHeader">
-    <img src="https://assets2016.bmob.cn/img/header.jpg" alt="" />
-</div> -->
-
 		<div class="butterbar" id="butterbar" style="display: none;">
 			<div class="bar">
 			</div>
 		</div>
 		<span id="close_banner" class="close_banner"></span>
-		<link rel="stylesheet" type="text/css" href="https://assets2016.bmob.cn/css/index.css?58">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
 
-		<div class="alert alert-danger alert-dismissable alert-idx">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-			<a href="/notify/redirtToNotify?notifyId=8867209&amp;link=https%3A%2F%2Fwww.bmob.cn%2Fsite%2Fnews%2F87">备战双11，限时优惠，短信低至0.02元/条</a>
-		</div>
-
-		<a href="#" class="nav-toggle" aria-hidden="true">Menu</a>
 		<div id="nav" class="sidenav nav-collapse nav-collapse-0 closed" aria-hidden="false" style="transition: max-height 284ms; position: relative;">
 			<ul>
 				<li>
@@ -97,12 +74,8 @@
 				<li class="on">
 					<a href="/app/list">应用</a><span><a href="/app/list">控制台首页</a></span></li>
 				<li>
-					<a href="/shop/getProject">源码
-						<!--              <span class="badge pull-right" style="top:0px;right:0px">new</span>-->
-					</a>
+					<a href="/shop/getProject">源码</a>
 				</li>
-				<!-- <li ><a href="/analysis/ApiAll">分析</a></li> -->
-				<!-- <li><a href="/app/appwebsite/100239">站点</a></li> -->
 
 				<li>
 					<a href="/copyright/index">软著</a>
@@ -119,9 +92,9 @@
 				<li>
 					<a href="/account/index">账户</a>
 				</li>
-
-				<!--      <li><a href="-->
-				<!--">登出</a></li>-->
+				<li>
+					<a href="">登出</a>
+				</li>
 			</ul>
 		</div>
 		<div class="main">
@@ -137,8 +110,8 @@
 				}
 			</script>
 
-			<link rel="stylesheet" href="https://assets2016.bmob.cn/css/swiper.min.css?&gt;" type="text/css">
-			<script type="text/javascript" src="https://assets2016.bmob.cn/js/swiper.min.js?96"></script>
+			<link rel="stylesheet" href="css/swiper.min.css" type="text/css">
+			<script type="text/javascript" src="js/swiper.min.js"></script>
 
 			<!--<div style="width: 100%;height: 100%;opacity:0.6;z-index: 1041;background-color: #000;position: fixed;left:0;top:0;">sssss</div>-->
 			<style type="text/css">
@@ -148,8 +121,8 @@
 			</style>
 			<div class="main-top" style="position:relative;z-index:1;">
 				<button class="btn btn-lg btn-addapp" data-toggle="modal" data-target="#userInfoModal" id="createApp">
-        + 创建应用
-    </button>
+		        + 创建应用
+		    </button>
 				<div class="user-msg">
 					<i class="hidden-xs">www.704921698@qq.com</i>
 					<span class="glyphicon glyphicon-menu-down hidden-xs"></span>
@@ -165,58 +138,58 @@
 						<tr>
 							<td>
 								<div>
-									<img src="https://assets2016.bmob.cn/img/no-appname.png" alt="应用名称">
+									<img src="img/no-appname.png" alt="应用名称">
 								</div>
 								<h4>
-                            <span class="name">Nice</span>
-                            <input type="hidden" name="id" value="100239">
-                            <input type="hidden" name="priority_url" value="/app/browser/100239">
-                            <p class="app-ver">
-                                <span app-id="100239" class="applevel coffee">开发版</span>
-                                                            </p>
-<!--                            //开发版 coffee  //企业版 violet //企业版pro darkBlue //专业版 green  //海外加速 lightBlue -->
-                        </h4>
+	                        <span class="name">Nice</span>
+	                        <input type="hidden" name="id" value="100239">
+	                        <input type="hidden" name="priority_url" value="/app/browser/100239">
+	                        <p class="app-ver">
+	                            <span app-id="100239" class="applevel coffee">开发版</span>
+	                                                        </p>
+	<!--                            //开发版 coffee  //企业版 violet //企业版pro darkBlue //专业版 green  //海外加速 lightBlue -->
+	                    </h4>
 							</td>
 							<td class="hidden-xs">
 								<h5>
-                            <strong>0</strong>
-                            <span></span>
-                        </h5>
+	                        <strong>0</strong>
+	                        <span></span>
+	                    </h5>
 								<span>本月请求</span>
 							</td>
 
 							<td class="hidden-xs">
 								<h5>
-                                                            <strong>2.60</strong>
-                                <span>MB</span>
-                                                        <!--                    <strong>-->
-                            <!--</strong>-->
-                            <!--                    <span>GB</span>-->
-
-                        </h5>
+	                                                        <strong>2.60</strong>
+	                            <span>MB</span>
+	                                                    <!--                    <strong>-->
+	                        <!--</strong>-->
+	                        <!--                    <span>GB</span>-->
+	
+	                    </h5>
 								<span>应用存储</span>
 							</td>
 
 							<td class="hidden-xs">
 								<h5>
-                                                            <strong>0</strong>
-                                <span></span>
-                                                    </h5>
+	                                                        <strong>0</strong>
+	                            <span></span>
+	                                                </h5>
 								<span>本月流量</span>
 							</td>
 
 							<td class="hidden-xs hidden-sm">
 								<h5>
-                                <strong>0</strong>
-                                <span></span>
-                            </h5>
+	                            <strong>0</strong>
+	                            <span></span>
+	                        </h5>
 								<span>昨日短信消耗</span>
 							</td>
 							<td class="hidden-xs hidden-sm hidden-md">
 								<h5>
-                                <strong>0.00</strong>
-                                <span></span>
-                            </h5>
+	                            <strong>0.00</strong>
+	                            <span></span>
+	                        </h5>
 								<span>昨日支付收入</span>
 							</td>
 
@@ -224,6 +197,7 @@
 					</tbody>
 				</table>
 			</div>
+
 			<!-- 视频播放 -->
 			<div id="mod_player" style="position:absolute;top:250px;"></div>
 
@@ -309,97 +283,8 @@
 			<script type="text/javascript">
 				$("#butterbar").fadeOut();
 			</script>
-			<script src="https://assets2016.bmob.cn/js/device.min.js?96" type="text/javascript"></script>
-			<script src="https://assets2016.bmob.cn/js/page/admin-app.js?96" type="text/javascript"></script>
-			<script src=" https://hm.baidu.com/h.js?8bd127f03a0fb66b134fe06b676f0dfc" type="text/javascript"></script>
-			<script src=" https://hm.baidu.com/h.js?b38f059c148ad1aa4d0fc03a170a5561" type="text/javascript"></script>
-			<script src="https://imgcache.qq.com/tencentvideo_v1/tvp/js/tvp.player_v2.js" charset="utf-8"></script>
-			<script type="text/javascript">
-				$(function() {
-					if($(window).width() > 1200) {
-						banner()
-					}
-
-					//版本选择
-					$('.price-select').click(function() {
-						$('.price-select').removeClass('active');
-						$(this).addClass('active')
-					})
-
-				})
-				$(window).resize(function() {
-					if($(window).width() > 1200) {
-						banner()
-					} else {
-						pause()
-					}
-				})
-
-				function banner() {
-					new Swiper('#banner', {
-						autoplay: 3000,
-						autoplayDisableOnInteraction: false,
-						pagination: '.bullet-pagination',
-						bulletClass: 'my-bullet',
-						bulletActiveClass: 'my-bullet-active',
-						paginationClickable: true,
-						direction: 'vertical',
-						onlyExternal: true,
-						preloadImages: false,
-						lazyLoading: true
-					});
-				}
-
-				function play() {
-					$('.video-mark').show()
-					paytencentVideo()
-				}
-
-				function pause() {
-					$('.video-mark').hide()
-				}
-
-				function paytencentVideo() {
-					var video = new tvp.VideoInfo(); //定义视频对象
-					video.setVid("c01928zckbh"); //向视频对象传入视频vid，进入腾讯视频，上面提到的地址里面就可以找到视频的vid
-					var height = document.body.clientHeight * 0.5;
-					var width = document.body.clientWidth * 0.5;
-					var player = new tvp.Player(); //定义播放器对象，参数可接受数值
-					player.create({
-						width: width,
-						height: height,
-						video: video,
-						modId: "mod_player",
-						autoplay: true,
-						share: 0,
-					});
-				}
-
-				BmobNamespace.listUrl = '/app/list';
-				BmobNamespace.Disable = '/app/disable';
-				BmobNamespace.clickBanner = '/site/clickBanner';
-				BmobNamespace.upgradeLevelUrl = '/upgrade/applevel';
-				BmobNamespace.internetUrl = '/upgrade/internet';
-
-				$('.index-banner a').click(function() {
-					var id = $(this).attr('id');
-					if(id) {
-						id = id.substring(7);
-						$.ajax({
-							type: 'get',
-							url: BmobNamespace.clickBanner + '/' + id,
-							success: function(data) {
-
-							}
-						});
-					}
-				});
-
-				jQuery(function($) {
-					listPageObj.autoload();
-					listPageObj.eventReg();
-				});
-			</script>
+			<script src="js/device.min.js" type="text/javascript"></script>
+			<script src="js/page/admin-app.js" type="text/javascript"></script>
 
 			<script type="text/javascript">
 				$("#butterbar").fadeOut();
@@ -408,20 +293,11 @@
 			<div class="footer">
 				<div class="footer-left pull-left">
 					<a href="/">
-						<img src="https://assets2016.bmob.cn/img/logo.png" alt="比目科技有限公司"></a>
+						<img src="img/logo.png" alt="加油站"></a>
 				</div>
 				<div class="footer-right pull-right">
-					<a href="https://docs.bmob.cn/data/Android/a_faststart/doc/index.html">文档</a>
-					<a href="https://www.bmob.cn/downloads">下载</a>
-					<!-- <a href="http://wenda.bmob.cn/">问答</a> -->
-					<a href="https://www.bmob.cn/prices">价格</a>
-					<a href="https://docs.bmob.cn/other/Other/h_helps/doc/index.html">FAQ</a>
-
-					<!-- <a href="javascript:;" id="BizQQWPA">客服</a>
-                      <script type="text/javascript">
-                      BizQQWPA.addCustom({aty:'1',a:'1002', nameAccount:800152098
-  , selector:'BizQQWPA'});
-                     </script> -->
+					<a href="">文档</a>
+					<a href="">FAQ</a>
 				</div>
 			</div>
 		</div>
@@ -435,16 +311,7 @@
 			<div id="msg_error"></div>
 		</div>
 
-		<!--  -->
-		<!--  <script type="text/javascript">
-
-        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb38f059c148ad1aa4d0fc03a170a5561' type='text/javascript'%3E%3C/script%3E"));
-
-    </script> -->
-		<!--  -->
-
-		<script type="text/javascript" src="https://assets2016.bmob.cn/js/common.js?96"></script>
+		<script type="text/javascript" src="js/common.js"></script>
 		<script>
 			$('button.close').on('click', function() {
 				$(this).parent(".alert").hide();

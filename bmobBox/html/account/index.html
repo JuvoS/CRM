@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="MobileOptimized" content="320">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta name="renderer" content="webkit">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta charset="utf-8">
+
+    <meta content="bmob,bomb,baas,mBaas,支付,比目,比目支付,移动支付,短信验证码,移动后端云服务,移动云服务,移动云存储,软著,软著办理,aso优化,aso服务,冲榜" name="keywords">
+    <meta content="国内首家专注于移动应用云服务的平台,baas模式的云服务平台,完全免费的云服务平台" name="description">
+    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="../../js/jquery-1.11.1.min.js?96"></script>
+<title>用户信息－Bmob后端云</title>
+    <link rel="stylesheet" type="text/css" href="../../css/global.css?58">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css?58">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-slider.min.css?58">
+    <link rel="stylesheet" type="text/css" href="../../css/responsive-nav.css?58">
+    <link rel="stylesheet" type="text/css" href="../../css/base.css?58">
+            <!--    <script  type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js?96"></script>-->
+        <script src="../../js/jquery.nicescroll.js?96" type="text/javascript"></script>
+    <script src="../../js/datalist.js?96" type="text/javascript"></script>
+    <script type="text/javascript" src="../../js/bootstrap.min.js?96"></script>
+    <script type="text/javascript" src="../../js/responsive-nav.js?96"></script>
+    <script type="text/javascript" src="../../js/base.js?96"></script>
+
+    <script type="text/javascript">
+        // 跳转https
+        if (location.protocol != 'https:' && (location.hostname == 'www.bmob.cn' || location.hostname == 'bmob.cn')) {
+            location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+        }
+
+        var BmobNamespace = {};
+        BmobNamespace.baseUrl = '';
+        BmobNamespace.themeUrl = '../..';
+        BmobNamespace.baseUrlWithHost = "https://www.bmob.cn";
+    </script>
+</head>
+
+	<body>
+<!-- <div class="showHeader">
+    <img src="../../img/header.jpg" alt="" />
+</div> -->
+
+<div class="butterbar" id="butterbar" style="display: none;">
+    <div class="bar">
+    </div>
+</div>
+<span id="close_banner" class="close_banner"></span>
+    <link rel="stylesheet" type="text/css" href="../../css/datalist.css?58">
+<link rel="stylesheet" type="text/css" href="../../css/pay.css?58">
+
+
+
+<a href="#" class="nav-toggle" aria-hidden="true">Menu</a><div id="nav" class="sidenav nav-collapse nav-collapse-0 closed" aria-hidden="false" style="transition: max-height 284ms; position: relative;">
+  <ul>
+   	  <li><a href="/app/list">首页</a><span><a href="/">首页</a></span></li>
+      <li><a href="/app/list">应用</a><span><a href="/app/list">控制台首页</a></span></li>
+      <li><a href="/shop/getProject">源码
+<!--              <span class="badge pull-right" style="top:0px;right:0px">new</span>-->
+          </a></li>
+      <!-- <li ><a href="/analysis/ApiAll">分析</a></li> -->
+      <!-- <li><a href="/app/appwebsite/100239">站点</a></li> -->
+
+      <li><a href="/copyright/index">软著</a></li>
+      <li><a href="/finance/index">财务</a></li>
+      <li><a href="/notify/index">消息<span class="badge pull-right">6</span></a></li>
+      <li><a href="/workOrder/index">工单</a></li>
+      <li class="on"><a href="/account/index">账户</a></li>
+
+<!--      <li><a href="--><!--">登出</a></li>-->
+  </ul>
+</div>
+    <div class="main-left">
+    <div>
+                	<div>
+    <div>
+        <p class="biaoti pd1">
+            <b>账户管理</b>
+        </p>
+    </div>
+    <ul class="subnav">
+        <li class="on">
+            <a href="/account/index">用户信息</a>
+        </li>
+        <li>
+            <a href="/account/team">团队管理</a>
+        </li>
+        <!-- <li >
+            <a href="/account/level">用户等级</a>
+        </li> -->
+        <li onclick="verifyInfo()">
+            <a href="javascript:void(0)">实名认证</a>
+        </li>
+        <li>
+            <a href="/account/alarmsms">通知设置</a>
+        </li>
+        <li>
+            <a href="/account/reset">密码修改</a>
+        </li>
+        <li>
+            <a href="/account/thirdparty">第三方账户</a>
+        </li>
+        <li>
+            <a href="/account/invite">推荐用户</a>
+        </li>
+    </ul>
+</div>
+
+
+
+            </div>
+</div>
+    <div class="main-right container">
+
+          <style>
+    @media screen and (min-width: 768px) {
+      .form-horizontal .control-label {
+        margin-left: 0;
+      }
+    }
+</style>
+          <div class="lists box-sh order-table" style="margin-top: 34px;">
+            <h5><b>完善个人信息的重要性！</b></h5>
+            <ul class="file-dep">
+              <li>为了更好的服务开发者，建议您完善开发者信息，填写真实姓名、电话号码</li>
+              <li>在套餐用量不足的情况，我们可以及时与您取得联系，获得更好的服务</li>
+              <li>在服务宕机等意外情况中，我们可以及时与您取得联系，获得更好的服务</li>
+            </ul>
+          </div>
+          <!-- 只有用户填写实名验证状态是未提交和审核失败才显示这个框 -->
+                    <div class="mt box-sh order-table warn">
+            <p>您还不是认证用户，认证用户可以享受使用更多的功能和更好的服务。<a href="/account/info" class="font-blue">去验证&gt;&gt;</a></p>
+          </div>
+          
+          <div class="mt order-table user-content">
+
+            <form class="form-horizontal" id="user-form" role="form" action="/account/index" onsubmit="return account.validateAll()" method="post">
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label nopd  col-lg-1">注册邮箱：</label>
+                <div class="col-sm-10 col-lg-5">
+                  <span>www.704921698@qq.com</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label nopd  col-lg-1 mt8">真实姓名：</label>
+                <div class="col-sm-10 col-lg-5">
+	                  <input type="text" class="form-control" name="UserForm[name]" id="name" value="Juvo" placeholder="必填">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label nopd mt13 col-lg-1">开发者类型：</label>
+                <div class="col-sm-10 col-lg-5">
+                  <div class="radio">
+
+	                    <label>
+	                      <input type="radio" checked="checked" value="0" name="UserForm[creditType]" onclick="account.SelectType()" class="dev_type_radio">
+	                      个人
+	                    </label>
+	                    <label style="margin-left:18px">
+	                    <input type="radio" value="1" name="UserForm[creditType]" onclick="account.SelectType()" class="dev_type_radio">
+	                    企业
+	                    </label>
+
+                  </div>
+                </div>
+              </div>
+              <div id="company_tr" class="form-group" style="display:none">
+                <label class="col-sm-2 control-label nopd  col-lg-1 mt8">公司名称：</label>
+                <div class="col-sm-10 col-lg-5">
+
+	                  <input type="text" class="form-control" name="UserForm[company]" id="company" value="" placeholder="必填">
+                </div>
+              </div>
+              <div id="website_tr" class="form-group" style="display:none">
+                <label class="col-sm-2 control-label nopd  col-lg-1 mt8">公司网站：</label>
+                <div class="col-sm-10 col-lg-5">
+
+      	                  <input type="text" class="form-control" name="UserForm[company_website]" id="website" value="" placeholder="选填">
+
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label nopd  col-lg-1 mt8">联系QQ：</label>
+                <div class="col-sm-10 col-lg-5">
+	                  <input type="text" class="form-control" name="UserForm[qq]" id="qq" value="" placeholder="必填">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label nopd  col-lg-1 mt8">微信：</label>
+                <div class="col-sm-10 col-lg-5">
+                    <input type="text" class="form-control" name="UserForm[weixin]" id="weixin" value="" placeholder="必填">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label nopd  col-lg-1 mt8">手机号码：</label>
+                <div class="col-sm-10 col-lg-5" style="position:relative;">
+                      <input type="hidden" name="UserForm[code]" id="UserForm_code">
+                      <input type="hidden" name="UserForm[mobile]" id="UserForm_mobile" value="">
+		                  <input type="text" class="form-control" id="mobile" value="请完善您的手机号码" disabled="">
+  		                                        <button type="button" class="btn btn-link" style="position:absolute;right:20px;top:8px;" data-toggle="modal" data-target="#change-phone">修改</button>
+                                      </div>
+              </div>
+                                            <div class="form-group">
+                  <label class="col-sm-2 control-label nopd  col-lg-1 mt8">创建时间：</label>
+                  <div class="col-sm-10 col-lg-5">
+                    		<input type="text" class="form-control" value="2016-06-28 20:49:37" disabled="">
+                  </div>
+                </div>
+                            <div class="form-group">
+                <div class="col-lg-offset-1 col-sm-10 col-lg-5">
+                                    	<button type="submit" class="btn bg-blue save-btn">保存</button>
+                        	                  </div>
+              </div>
+            </form>
+          </div>
+
+<script type="text/javascript" src="../../js/page/admin-account.js?96"></script>
+<script type="text/javascript">
+    BmobNamespace.thirdparty = '/account/thirdparty';
+    BmobNamespace.userOpenId = 'oUxY3w5IGhTz5tp45ne96VSmNIXU';
+    BmobNamespace.userInfo = '/account/info';
+    jQuery(document).ready(function () {
+                indexPageObj.autoload();
+        indexPageObj.eventReg();
+    });
+</script>
+         
+<script type="text/javascript">
+    $("#butterbar").fadeOut();
+</script>
+
+
+<div class="footer">
+    <div class="footer-left pull-left">
+        <a href="/">
+            <img src="../../img/logo.png" alt="比目科技有限公司"></a>
+    </div>
+    <div class="footer-right pull-right">
+        <a href="https://docs.bmob.cn/data/Android/a_faststart/doc/index.html">文档</a>
+                <a href="https://www.bmob.cn/downloads">下载</a>
+                <!-- <a href="http://wenda.bmob.cn/">问答</a> --><a href="https://www.bmob.cn/prices">价格</a><a href="https://docs.bmob.cn/other/Other/h_helps/doc/index.html">FAQ</a>
+                     
+                <!-- <a href="javascript:;" id="BizQQWPA">客服</a>
+                      <script type="text/javascript">
+                      BizQQWPA.addCustom({aty:'1',a:'1002', nameAccount:800152098
+  , selector:'BizQQWPA'});
+                     </script> -->
+    </div>
+</div>    </div>
+
+                        <div class="modal fade" id="change-phone">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">手机号修改</h4>
+              </div>
+              <div class="modal-body" style="overflow:hidden;">
+                <div class="form-group">
+                  <div class="col-xs-12">
+                    <input type="text" class="form-control" name="validemobile" id="validemobile" placeholder="输入手机号码">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-xs-8  mt10">
+                    <input type="text" class="form-control" name="validcode" id="validcode" placeholder="输入短信验证码">
+                  </div>
+                  <div class="col-xs-4  mt10">
+                    <button id="get_code" class="btn form-control" style="background:#27ad28!important;color:#fff!important;border:0 none;">获取验证码</button>
+                  </div>
+                  <div class="col-xs-10 mt10" style="hidden:true">
+                    <p class="font-danger" id="valid_msg"></p>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default save-btn" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn bg-blue save-btn" id="save_mobile">保存</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal 权限控制的模态窗口-->
+                     <div class="modal fade appadd" id="InfoModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">提示</h4>
+          </div>
+          <div class="modal-body" style="height:60px">
+              <div>
+                   <div class="col-sm-12">
+                       尊敬的Bmob用户，为了更好的提高实名认证的处理效率，请先绑定Bmob后端云官方微信公众号（微信号：bmober），绑定后可以随时了解工单进度，及时解决问题。
+                   </div>
+               </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="submit" class="btn btn-save bg-blue" onclick="bindWx()">立即绑定</button>
+          </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->    
+
+<div class="alert alert-success alert-dismissable" style="display: none;">
+    <button type="button" class="close" aria-hidden="true">×</button>
+    <div id="msg_success"></div>
+</div>
+<div class="alert alert-danger alert-dismissable" style="display: none;">
+    <button type="button" class="close" aria-hidden="true">×</button>
+    <div id="msg_error"></div>
+</div>
+
+<!--  -->
+   <!--  <script type="text/javascript">
+
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb38f059c148ad1aa4d0fc03a170a5561' type='text/javascript'%3E%3C/script%3E"));
+
+    </script> -->
+<!--  -->
+
+
+
+<script type="text/javascript" src="../../js/common.js?96"></script>
+<script>
+    $('button.close').on('click', function () {
+        $(this).parent(".alert").hide();
+    });
+</script>
+</body>
+</html>
